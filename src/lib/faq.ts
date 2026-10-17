@@ -13,7 +13,7 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Is shipping insured?",
-    a: "Yes. Every shipment travels fully insured with signature on delivery, and orders above $1,000 ship with complimentary express delivery.",
+    a: "Yes. Every shipment travels fully insured with signature on delivery, and orders above Rs 280,000 ship with complimentary express delivery.",
   },
   {
     q: "Can I return a watch?",

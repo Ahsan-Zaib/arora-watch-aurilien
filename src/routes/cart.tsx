@@ -139,7 +139,7 @@ function CartPage() {
                 Continue shopping
               </Link>
               <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-                Coupon codes are applied at checkout. Try GOLD10 for 10% off orders over $500.
+                Coupon codes are applied at checkout. Try GOLD10 for 10% off orders over Rs 140,000.
               </p>
             </Reveal>
           </div>

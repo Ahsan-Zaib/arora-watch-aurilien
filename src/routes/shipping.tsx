@@ -8,7 +8,7 @@ export const Route = createFileRoute("/shipping")({
       {
         name: "description",
         content:
-          "Insured worldwide delivery, free express shipping over $1,000, dispatch times, duties and tracking information.",
+          "Insured worldwide delivery, free express shipping over Rs 280,000, dispatch times, duties and tracking information.",
       },
       { property: "og:title", content: "Shipping & Delivery — Aurélien Genève" },
       { property: "og:description", content: "How and when your timepiece reaches you." },
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/shipping")({
         {
           heading: "Shipping charges",
           paragraphs: [
-            "A flat insured shipping charge of $45 applies to orders below $1,000. Orders of $1,000 or more ship free by express courier.",
+            "A flat insured shipping charge of Rs 2,500 applies to orders below Rs 280,000. Orders of Rs 280,000 or more ship free by express courier.",
             "The charge shown at checkout is final; we do not add handling or packaging fees.",
           ],
         },

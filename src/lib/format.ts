@@ -1,8 +1,8 @@
 export function formatPrice(value: number | string | null | undefined): string {
   const n = typeof value === "string" ? Number(value) : (value ?? 0);
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("en-PK", {
     style: "currency",
-    currency: "USD",
+    currency: "PKR",
     maximumFractionDigits: 0,
   }).format(Number.isFinite(n) ? n : 0);
 }
@@ -35,8 +35,8 @@ export function formatDate(value: string | null | undefined): string {
   });
 }
 
-export const SHIPPING_FLAT = 45;
-export const FREE_SHIPPING_THRESHOLD = 1000;
+export const SHIPPING_FLAT = 2500;
+export const FREE_SHIPPING_THRESHOLD = 280000;
 
 export function shippingFor(amount: number): number {
   return amount >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT;

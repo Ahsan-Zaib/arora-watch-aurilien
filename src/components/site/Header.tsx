@@ -36,7 +36,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50">
       <div className="bg-gold-gradient px-4 py-2 text-center text-[0.7rem] tracking-[0.2em] uppercase text-primary-foreground">
-        Complimentary worldwide shipping over $1,000 · 5-year warranty
+        Complimentary worldwide shipping over Rs 280,000 · 5-year warranty
       </div>
       <div className="glass-panel border-x-0 border-t-0">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">

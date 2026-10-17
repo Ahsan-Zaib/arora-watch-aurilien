@@ -250,7 +250,7 @@ function ProductPage() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[
-              { Icon: Truck, label: "Free insured shipping over $1,000" },
+              { Icon: Truck, label: "Free insured shipping over Rs 280,000" },
               { Icon: ShieldCheck, label: "5-year international warranty" },
               { Icon: RotateCcw, label: "30-day returns, no questions" },
             ].map(({ Icon, label }) => (
