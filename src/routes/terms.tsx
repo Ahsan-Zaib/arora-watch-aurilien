@@ -31,7 +31,7 @@ export const Route = createFileRoute("/terms")({
         {
           heading: "Pricing",
           paragraphs: [
-            "Prices are shown in US dollars and exclude import duties. Where an original price is displayed alongside a reduced price, the original is the most recent regular selling price.",
+            "Prices are shown in Pakistani Rupees (PKR) and exclude import duties. Where an original price is displayed alongside a reduced price, the original is the most recent regular selling price.",
             "We correct obvious pricing errors and will contact you before charging any difference.",
           ],
         },

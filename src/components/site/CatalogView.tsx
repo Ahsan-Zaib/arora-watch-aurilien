@@ -42,7 +42,7 @@ export function CatalogView({
   const [gender, setGender] = useState<string>(preset.gender ?? "");
   const [brand, setBrand] = useState<string>("");
   const [material, setMaterial] = useState<string>("");
-  const [maxPrice, setMaxPrice] = useState<number>(20000);
+  const [maxPrice, setMaxPrice] = useState<number>(6000000);
   const [sort, setSort] = useState<SortKey>(preset.sort ?? "featured");
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -66,14 +66,14 @@ export function CatalogView({
   );
 
   const shown = results.slice(0, visible);
-  const activeCount = [category, gender, brand, material].filter(Boolean).length + (maxPrice < 20000 ? 1 : 0);
+  const activeCount = [category, gender, brand, material].filter(Boolean).length + (maxPrice < 6000000 ? 1 : 0);
 
   function reset() {
     setCategory("");
     setGender(preset.gender ?? "");
     setBrand("");
     setMaterial("");
-    setMaxPrice(20000);
+    setMaxPrice(6000000);
     setSearch("");
   }
 
@@ -127,8 +127,8 @@ export function CatalogView({
         <input
           type="range"
           min={500}
-          max={20000}
-          step={500}
+          max={6000000}
+          step={50000}
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
           className="mt-4 w-full accent-primary"

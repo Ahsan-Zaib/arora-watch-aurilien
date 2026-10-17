@@ -1,6 +1,5 @@
 -- Switch store currency to PKR (approx 1 USD = 280 PKR), rounded to nearest 1,000
 update public.products set price = round(price*280/1000)*1000, original_price = case when original_price is null then null else round(original_price*280/1000)*1000 end;
-update public.product_variants set price = round(price*280/1000)*1000 where price is not null;
 update public.coupons set min_order_amount = round(min_order_amount*280/1000)*1000, discount_value = case when discount_type='fixed' then round(discount_value*280/1000)*1000 else discount_value end;
 create or replace function public.place_order(
   p_items jsonb,

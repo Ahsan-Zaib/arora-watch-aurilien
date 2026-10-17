@@ -24,7 +24,7 @@ function SalePage() {
       <PageHero
         eyebrow="Limited Reductions"
         title="Sale"
-        description="Selected references at reduced pricing. Use code GOLD10 for a further 10% on orders over $500."
+        description="Selected references at reduced pricing. Use code GOLD10 for a further 10% on orders over Rs 140,000."
       />
       <CatalogView preset={{ onSale: true, sort: "price-desc" }} />
     </>

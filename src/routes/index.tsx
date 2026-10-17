@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Aurélien Genève — Luxury Swiss Watches Since 1908" },
       {
         property: "og:description",
-        content: "Hand-assembled Swiss timepieces with free insured worldwide delivery over $1,000.",
+        content: "Hand-assembled Swiss timepieces with free insured worldwide delivery over Rs 280,000.",
       },
     ],
   }),
@@ -248,7 +248,7 @@ function HomePage() {
             {[
               { Icon: Gem, title: "In-house calibres", text: "Movements designed, assembled and regulated under one roof in Genève." },
               { Icon: ShieldCheck, title: "5-year warranty", text: "International coverage on every movement, honoured in 40 countries." },
-              { Icon: Truck, title: "Insured delivery", text: "Free express shipping over $1,000, fully insured and signed for." },
+              { Icon: Truck, title: "Insured delivery", text: "Free express shipping over Rs 280,000, fully insured and signed for." },
               { Icon: Clock, title: "Lifetime servicing", text: "We service every watch we have ever made, however old." },
             ].map(({ Icon, title, text }, i) => (
               <Reveal key={title} delay={i * 90} className="lux-card rounded-lg p-7">
