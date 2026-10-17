@@ -15,13 +15,6 @@
       "when": 1789844686898,
       "tag": "0001_order_placement_and_admin_bootstrap",
       "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1789844786898,
-      "tag": "0002_currency_pkr",
-      "breakpoints": true
     }
   ]
 }
