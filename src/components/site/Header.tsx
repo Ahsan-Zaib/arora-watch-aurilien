@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { Menu, Search, ShoppingBag, User, X, LayoutDashboard, LogOut } from "lucide-react";
+import { Search, ShoppingBag, User, LayoutDashboard, LogOut } from "lucide-react";
+import { WatchDialButton } from "@/components/site/WatchDialButton";
 import { useCart } from "@/lib/cart";
 import { useAuth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
@@ -39,14 +40,11 @@ export function Header() {
       </div>
       <div className="glass-panel border-x-0 border-t-0">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
-          <button
-            type="button"
-            className="lg:hidden"
-            aria-label="Open menu"
+          <WatchDialButton
+            open={open}
             onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            className="lg:hidden"
+          />
 
           <Link to="/" className="group flex flex-col items-center lg:items-start">
             <span className="font-display text-2xl leading-none tracking-[0.18em] text-gold-gradient">
