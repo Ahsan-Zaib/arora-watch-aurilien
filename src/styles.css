@@ -235,13 +235,57 @@
 
 @utility reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(2.25rem);
   transition:
-    opacity 0.9s var(--ease-lux),
-    transform 0.9s var(--ease-lux);
+    opacity 1s var(--ease-lux),
+    transform 1.15s var(--ease-lux),
+    filter 1.15s var(--ease-lux);
+  will-change: opacity, transform;
+
+  &[data-reveal="down"] {
+    transform: translateY(-2.25rem);
+  }
+  &[data-reveal="left"] {
+    transform: translateX(-2.75rem);
+  }
+  &[data-reveal="right"] {
+    transform: translateX(2.75rem);
+  }
+  &[data-reveal="scale"] {
+    transform: scale(0.9);
+  }
+  &[data-reveal="blur"] {
+    transform: translateY(1.25rem);
+    filter: blur(12px);
+  }
+  &[data-reveal="clip"] {
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(1.5rem) scale(1.02);
+
+    /* Curtain panel covering the card; wipes away on reveal */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background: var(--gradient-surface);
+      transform: scaleY(1);
+      transform-origin: bottom;
+      transition: transform 1.3s var(--ease-lux) var(--reveal-delay, 0ms);
+      pointer-events: none;
+    }
+  }
+
   &[data-visible="true"] {
     opacity: 1;
     transform: none;
+    filter: blur(0);
+
+    &[data-reveal="clip"]::after {
+      transform: scaleY(0);
+    }
   }
 }
 
@@ -317,4 +361,57 @@
     opacity: 1;
     animation: lux-shine 0.9s var(--ease-lux);
   }
+}
+
+/* Masked word reveal for headlines */
+.mask-line {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding: 0.08em 0 0.14em;
+  margin: -0.08em 0 -0.14em;
+}
+
+.mask-word {
+  display: inline-block;
+  transform: translateY(120%);
+  transition: transform 1.05s var(--ease-lux);
+  will-change: transform;
+}
+
+[data-visible="true"] .mask-word {
+  transform: none;
+}
+
+/* Gold hairline that draws itself in beside an eyebrow */
+.eyebrow-rule {
+  display: inline-block;
+  height: 1px;
+  width: 3rem;
+  background: linear-gradient(
+    to right,
+    var(--gold),
+    color-mix(in oklab, var(--gold) 20%, transparent)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s var(--ease-lux) 0.25s;
+}
+
+[data-visible="true"] .eyebrow-rule {
+  transform: scaleX(1);
+}
+
+/* Hero image: slow cinematic settle on first load */
+@keyframes lux-hero-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@utility animate-hero-zoom {
+  animation: lux-hero-zoom 3.2s var(--ease-lux) both;
 }
