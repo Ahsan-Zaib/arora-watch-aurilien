@@ -239,8 +239,7 @@
   transition:
     opacity 1s var(--ease-lux),
     transform 1.15s var(--ease-lux),
-    filter 1.15s var(--ease-lux),
-    clip-path 1.35s var(--ease-lux);
+    filter 1.15s var(--ease-lux);
   will-change: opacity, transform;
 
   &[data-reveal="down"] {
@@ -260,15 +259,33 @@
     filter: blur(12px);
   }
   &[data-reveal="clip"] {
-    clip-path: inset(0 0 100% 0);
-    transform: translateY(1.75rem) scale(1.05);
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(1.5rem) scale(1.02);
+
+    /* Curtain panel covering the card; wipes away on reveal */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background: var(--gradient-surface);
+      transform: scaleY(1);
+      transform-origin: bottom;
+      transition: transform 1.3s var(--ease-lux) var(--reveal-delay, 0ms);
+      pointer-events: none;
+    }
   }
 
   &[data-visible="true"] {
     opacity: 1;
     transform: none;
     filter: blur(0);
-    clip-path: inset(0 0 0 0);
+
+    &[data-reveal="clip"]::after {
+      transform: scaleY(0);
+    }
   }
 }
 
