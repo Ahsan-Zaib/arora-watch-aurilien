@@ -14,6 +14,7 @@ import { categoriesQuery, productsQuery } from "@/lib/catalog";
 import { FAQS } from "@/lib/faq";
 import { formatPrice } from "@/lib/format";
 import { Reveal } from "@/components/site/Reveal";
+import { TextReveal } from "@/components/site/TextReveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ProductRail } from "@/components/site/ProductRail";
 import { Newsletter } from "@/components/site/Newsletter";
@@ -89,37 +90,46 @@ function HomePage() {
           alt="Aurora chronograph in gold on dark stone"
           width={1920}
           height={1088}
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          className="animate-hero-zoom absolute inset-0 h-full w-full object-cover opacity-70"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
         <div className="relative mx-auto flex min-h-[85vh] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow">CRAFTED FOR DISTINCTION</p>
-            <h1 className="mt-6 text-5xl leading-[1.05] sm:text-6xl md:text-7xl">
-              Wear Your Legacy
-
-              <span className="block text-gold-gradient">Immaculately.</span>
-            </h1>
-            <p className="mt-7 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Explore a refined collection of watches selected for those who appreciate exceptional style
-               and timeless design. From sophisticated classics to modern statement pieces, discover a timepiece made to complement every occasion.
-              </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                to="/shop"
-                className="shine-on-hover inline-flex items-center gap-2 rounded-full bg-gold-gradient px-10 py-4 text-xs tracking-[0.22em] uppercase text-primary-foreground transition-transform duration-500 hover:scale-[1.03]"
-              >
-                Shop now
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/new-arrivals"
-                className="rounded-full border border-border px-10 py-4 text-xs tracking-[0.22em] uppercase transition-colors duration-500 hover:border-primary hover:text-primary"
-              >
-                New arrivals
-              </Link>
-            </div>
-            <div className="mt-14 flex flex-wrap gap-8 text-xs text-muted-foreground">
+          <div className="max-w-2xl">
+            <Reveal className="flex items-center gap-4">
+              <span className="eyebrow-rule" />
+              <p className="eyebrow">CRAFTED FOR DISTINCTION</p>
+            </Reveal>
+            <TextReveal
+              as="h1"
+              startDelay={250}
+              className="mt-6 text-5xl leading-[1.05] sm:text-6xl md:text-7xl"
+              lines={[
+                { text: "Wear Your Legacy" },
+                { text: "Immaculately.", wordClassName: "text-gold-gradient" },
+              ]}
+            />
+            <Reveal delay={650}>
+              <p className="mt-7 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Explore a refined collection of watches selected for those who appreciate exceptional style
+                 and timeless design. From sophisticated classics to modern statement pieces, discover a timepiece made to complement every occasion.
+                </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link
+                  to="/shop"
+                  className="shine-on-hover inline-flex items-center gap-2 rounded-full bg-gold-gradient px-10 py-4 text-xs tracking-[0.22em] uppercase text-primary-foreground transition-transform duration-500 hover:scale-[1.03]"
+                >
+                  Shop now
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/new-arrivals"
+                  className="rounded-full border border-border px-10 py-4 text-xs tracking-[0.22em] uppercase transition-colors duration-500 hover:border-primary hover:text-primary"
+                >
+                  New arrivals
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={950} className="mt-14 flex flex-wrap gap-8 text-xs text-muted-foreground">
               {[
                 ["3", "Years of Trust, One Timepiece at a Time."],
                 ["21", "days of testing"],
@@ -130,8 +140,8 @@ function HomePage() {
                   <p className="mt-1 tracking-[0.16em] uppercase">{label}</p>
                 </div>
               ))}
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -145,7 +155,7 @@ function HomePage() {
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((c, i) => (
-            <Reveal key={c.id} delay={i * 80}>
+            <Reveal key={c.id} delay={i * 80} variant="clip">
               <Link
                 to="/shop"
                 className="lux-card group relative block h-64 overflow-hidden rounded-lg"
@@ -186,7 +196,7 @@ function HomePage() {
       {/* LIMITED OFFER */}
       {offer ? (
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-          <Reveal className="lux-card grid items-center gap-10 overflow-hidden rounded-lg p-8 md:grid-cols-2 md:p-12">
+          <Reveal variant="left" className="lux-card grid items-center gap-10 overflow-hidden rounded-lg p-8 md:grid-cols-2 md:p-12">
             <div>
               <p className="eyebrow">Limited-time offer</p>
               <h2 className="mt-4 text-3xl sm:text-4xl">{offer.name}</h2>
@@ -266,7 +276,7 @@ function HomePage() {
         <SectionHeading eyebrow="Owners" title="What collectors say" align="center" />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {REVIEWS.map((r, i) => (
-            <Reveal key={r.name} delay={i * 100} className="lux-card rounded-lg p-8">
+            <Reveal key={r.name} delay={i * 100} variant="blur" className="lux-card rounded-lg p-8">
               <Sparkles className="h-5 w-5 text-primary" />
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">"{r.text}"</p>
               <div className="mt-6 flex items-center justify-between">
@@ -286,7 +296,7 @@ function HomePage() {
         <SectionHeading eyebrow="@aurelien.geneve" title="From the atelier" align="center" />
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {GALLERY.map((src, i) => (
-            <Reveal key={src} delay={i * 60}>
+            <Reveal key={src} delay={i * 60} variant="clip">
               <div className="group relative aspect-square overflow-hidden rounded">
                 <img
                   src={src}
