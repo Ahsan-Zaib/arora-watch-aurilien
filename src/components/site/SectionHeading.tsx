@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
+import { TextReveal } from "./TextReveal";
 
 export function SectionHeading({
   eyebrow,
@@ -26,8 +28,24 @@ export function SectionHeading({
       }
     >
       <div className={align === "center" ? "" : "max-w-xl"}>
-        {eyebrow ? <p className="eyebrow mb-3">{eyebrow}</p> : null}
-        <h2 className="text-3xl leading-tight sm:text-4xl md:text-[2.75rem]">{title}</h2>
+        {eyebrow ? (
+          <div
+            className={cn(
+              "mb-3 flex items-center gap-4",
+              align === "center" && "justify-center",
+            )}
+          >
+            <span className="eyebrow-rule" />
+            <p className="eyebrow">{eyebrow}</p>
+          </div>
+        ) : null}
+        <TextReveal
+          as="h2"
+          observe={false}
+          startDelay={180}
+          className="text-3xl leading-tight sm:text-4xl md:text-[2.75rem]"
+          lines={[{ text: title }]}
+        />
         {description ? (
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
             {description}
